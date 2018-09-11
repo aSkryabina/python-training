@@ -83,3 +83,11 @@ class ContactHelper:
         wd.find_element_by_name("selected[]").click()
         wd.find_element_by_css_selector("[value=Delete]").click()
         wd.switch_to_alert().accept()
+
+    def edit_first_contact(self, firstname):
+        wd = self.app.wd
+        wd.find_element_by_css_selector("[title=Edit]").click()
+        wd.find_element_by_name("firstname").click()
+        wd.find_element_by_name("firstname").clear()
+        wd.find_element_by_name("firstname").send_keys(firstname)
+        wd.find_element_by_name("update").click()
